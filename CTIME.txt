@@ -1,0 +1,24 @@
+﻿ČÁROVÉ KÓDY – panel pro Adobe Illustrator (2019 a novější, Windows)
+
+Instalace
+  1. Rozbal celý zip do libovolné složky.
+  2. Zavři Illustrator.
+  3. Dvojklikem spusť Instalovat.cmd.
+     (Pokud Windows zobrazí modré okno „Systém Windows ochránil váš počítač“,
+      klikni na „Další informace“ a „Přesto spustit“.)
+  4. Spusť Illustrator a otevři Okno > Rozšíření > Čárové kódy.
+
+Po instalaci můžeš rozbalenou složku smazat – panel se zkopíroval do profilu uživatele.
+
+Aktualizace na novější verzi: rozbal nový zip a spusť Instalovat.cmd znovu.
+Odebrání: Odinstalovat.cmd.
+
+Co instalace dělá
+  - zkopíruje panel do %APPDATA%\Adobe\CEP\extensions\cz.barcodes.illustrator
+  - v registru uživatele nastaví HKCU\Software\Adobe\CSXS.9–12\PlayerDebugMode = 1,
+    aby Illustrator načetl nepodepsané rozšíření
+  Nejsou potřeba práva správce.
+
+Písmo číslic
+  Panel hledá písmo OCR-B (např. „OCR-B 10 Pitch AT“). Když není nainstalované,
+  použije Arial a upozorní na to.

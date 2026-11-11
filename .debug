@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Vzdálené ladění panelu: v Chrome otevři http://localhost:8088 -->
+<ExtensionList>
+  <Extension Id="cz.barcodes.illustrator.panel">
+    <HostList>
+      <Host Name="ILST" Port="8088"/>
+    </HostList>
+  </Extension>
+</ExtensionList>

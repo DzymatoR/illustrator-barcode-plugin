@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Čárové kódy</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <main>
+    <section class="block">
+      <div class="row">
+        <label for="sym">Typ</label>
+        <select id="sym">
+          <option value="EAN13">EAN-13</option>
+          <option value="ITF14">ITF-14</option>
+          <option value="I25">Interleaved 2/5</option>
+          <option value="QR">QR kód</option>
+        </select>
+      </div>
+      <div class="row">
+        <label for="num" id="numLabel">Číslo</label>
+        <input id="num" type="text" inputmode="numeric" autocomplete="off" spellcheck="false" placeholder="např. 859400000000">
+      </div>
+      <div class="row" data-only="EAN13 ITF14 I25">
+        <label for="check">Kontr. č.</label>
+        <select id="check"></select>
+      </div>
+      <div id="result" class="result"></div>
+    </section>
+
+    <div id="preview" class="preview" aria-label="Náhled"></div>
+    <ul id="messages" class="messages"></ul>
+
+    <details class="block" open>
+      <summary>Rozměry</summary>
+      <div class="row" data-only="EAN13">
+        <label for="mag">Zvětšení</label>
+        <input id="mag" type="number" step="1" min="50" max="250"><span class="unit">%</span>
+      </div>
+      <div class="row">
+        <label for="x">Modul X</label>
+        <input id="x" type="number" step="0.001" min="0.05"><span class="unit">mm</span>
+      </div>
+      <div class="row" data-only="EAN13 ITF14 I25">
+        <label for="height">Výška čar</label>
+        <input id="height" type="number" step="0.1" min="1"><span class="unit">mm</span>
+      </div>
+      <div class="row" data-only="ITF14 I25">
+        <label for="ratio">Poměr š:ú</label>
+        <input id="ratio" type="number" step="0.05" min="2" max="3"><span class="unit">:1</span>
+      </div>
+      <div class="row" data-only="ITF14 I25">
+        <label for="bearer">Nosné pruhy</label>
+        <select id="bearer">
+          <option value="none">žádné</option>
+          <option value="tb">nahoře a dole</option>
+          <option value="frame">rám</option>
+        </select>
+      </div>
+      <div class="row" data-only="ITF14 I25">
+        <label for="bearerT">Tloušťka</label>
+        <input id="bearerT" type="number" step="0.1" min="0.1"><span class="unit">mm</span>
+      </div>
+      <div class="row" data-only="QR">
+        <label for="ecl">Korekce chyb</label>
+        <select id="ecl">
+          <option value="L">L – 7 %</option>
+          <option value="M">M – 15 %</option>
+          <option value="Q">Q – 25 %</option>
+          <option value="H">H – 30 %</option>
+        </select>
+      </div>
+      <div class="row" data-only="QR">
+        <label for="quiet">Světlá zóna</label>
+        <input id="quiet" type="number" step="1" min="0"><span class="unit">mod.</span>
+      </div>
+      <div class="row check">
+        <label><input id="background" type="checkbox"> Bílý podklad světlé zóny</label>
+      </div>
+    </details>
+
+    <details class="block">
+      <summary>Barva</summary>
+      <div class="row">
+        <label for="colorMode">Barva</label>
+        <select id="colorMode">
+          <option value="auto">Černá (K 100 v CMYK)</option>
+          <option value="spot">Vzorník dokumentu…</option>
+        </select>
+      </div>
+      <div class="row" id="spotRow">
+        <label for="spot">Vzorník</label>
+        <select id="spot"></select>
+        <button id="refreshSpots" class="icon" title="Načíst vzorníky z dokumentu">⟳</button>
+      </div>
+      <div class="row check">
+        <label><input id="overprint" type="checkbox"> Přetisk</label>
+      </div>
+      <div id="docInfo" class="hint"></div>
+    </details>
+
+    <details class="block" data-only="EAN13 ITF14 I25">
+      <summary>Text</summary>
+      <div class="row check">
+        <label><input id="showText" type="checkbox"> Zobrazit číslice</label>
+      </div>
+      <div class="row check" data-only="EAN13">
+        <label><input id="quietMark" type="checkbox"> Značka světlé zóny „&gt;“</label>
+      </div>
+      <div class="row">
+        <label for="fontSel">Písmo</label>
+        <select id="fontSel"></select>
+      </div>
+      <div class="row" id="fontRow">
+        <label for="font">Název</label>
+        <input id="font" type="text" spellcheck="false" placeholder="název písma, např. ArialMT">
+      </div>
+      <div class="row">
+        <label for="fontSize">Velikost</label>
+        <input id="fontSize" type="number" step="0.5" min="0" placeholder="auto"><span class="unit">pt</span>
+      </div>
+      <div class="row check">
+        <label><input id="outline" type="checkbox"> Převést text na křivky</label>
+      </div>
+    </details>
+
+    <details class="block">
+      <summary>Tisk</summary>
+      <div class="row">
+        <label for="dpi">Rozlišení</label>
+        <input id="dpi" type="number" step="1" min="0" placeholder="vyp."><span class="unit">dpi</span>
+      </div>
+      <div class="row check">
+        <label><input id="snap" type="checkbox"> Zaokrouhlit na body zařízení</label>
+      </div>
+      <div class="row">
+        <label for="bwr">Korekce BWR</label>
+        <input id="bwr" type="number" step="1" min="0"><span class="unit">µm</span>
+      </div>
+      <div id="dpiInfo" class="hint"></div>
+    </details>
+  </main>
+
+  <footer>
+    <button id="create" class="primary">Vytvořit</button>
+    <button id="update" title="Nahradí vybraný čárový kód aktuálním nastavením">Aktualizovat výběr</button>
+    <button id="load" class="icon" title="Načíst nastavení z vybraného kódu">⤓</button>
+  </footer>
+  <div id="status" class="status" role="status"></div>
+  <div id="about" class="about"></div>
+
+  <script src="js/cep.js"></script>
+  <script src="js/qr.js"></script>
+  <script src="js/barcode.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/about.js"></script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+{
+  "name": "illustrator-barcode-plugin",
+  "version": "0.2.0",
+  "private": true,
+  "author": "DzymatoR",
+  "homepage": "https://github.com/DzymatoR/illustrator-barcode-plugin#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DzymatoR/illustrator-barcode-plugin.git"
+  },
+  "description": "Panel pro Adobe Illustrator: vektorové čárové kódy EAN-13, ITF-14, Interleaved 2/5 a QR",
+  "scripts": {
+    "test": "node --test"
+  }
+}
