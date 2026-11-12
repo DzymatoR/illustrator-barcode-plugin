@@ -39,7 +39,7 @@ Vydání: zvýšit verzi na všech třech místech, spustit `build.ps1` a zip p�
 | `js/qr.js` | kodér QR a převod modulů na obdélníky |
 | `js/main.js` | logika panelu, uložení nastavení |
 | `js/cep.js` | minimální obal nad CEP API |
-| `js/about.js` | verze, autor a odkaz na návod v patičce panelu |
+| `js/about.js` | verze, autor a odkazy na návod a Ko-fi v patičce panelu |
 | `jsx/host.jsx` | ExtendScript: kreslení do dokumentu, barvy, text, aktualizace výběru |
 | `CSXS/manifest.xml` | manifest CEP rozšíření |
 | `test/` | testy kodérů |

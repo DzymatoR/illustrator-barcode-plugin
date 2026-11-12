@@ -23,6 +23,7 @@ Informace pro vývojáře jsou ve [VYVOJ.md](VYVOJ.md).
 - [Hlášení a varování](#hlášení-a-varování)
 - [Známá omezení](#známá-omezení)
 - [Řešení potíží](#řešení-potíží)
+- [Podpora](#podpora)
 
 ## Instalace
 
@@ -213,3 +214,7 @@ Varování vytvoření kódu nebrání. Je na vás, zda je odchylka v dané zak�
 | Kód se nevytvořil | Přečtěte si hlášení pod tlačítky. Nejčastěji není otevřený dokument nebo je aktivní vrstva zamčená. |
 
 Chyby a náměty hlaste autorovi nebo přes [Issues](https://github.com/DzymatoR/illustrator-barcode-plugin/issues). Připojte verzi panelu, verzi Illustratoru a text hlášení z panelu.
+
+## Podpora
+
+Panel je zdarma. Jestli vám šetří práci, můžete autora pozvat na kávu: [ko-fi.com/dzymator](https://ko-fi.com/dzymator). Stejný odkaz je i v patičce panelu.
